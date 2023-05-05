@@ -1,7 +1,8 @@
 # Spuštění aplikace
 
+<!-- [CR] chybí mi tu závislosti, např. jaká verze node -->
 - Otevřít projekt a nainstalovat potřebné moduly pomocí příkazu `yarn install`
-- spustit index.js soubor pomocí příkazu `node src/index.js`
+- spustit index.js soubor pomocí příkazu `node src/index.js` <!-- [CR] proč ne přes yarn? -->
 
 # Otestování aplikace
 
@@ -11,3 +12,5 @@ Druhý endpoint, který vrací údaje o kartě ještě potřebuje nastavení zá
 
 - username: `admin`
 - password: `admin`
+
+<!-- [CR] škoda, že není k dispozici openapi/swagger -->

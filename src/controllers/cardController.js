@@ -4,6 +4,7 @@ export const getStateAndValidity = async (req, res) => {
     const cardNumber = req.params.cardNumber;
     try {
         const promises = [
+            // [CR] base url by mel byt v .env, aby se to dalo jednoduse menit, napr. pri testovani
             axios.get(`https://private-264465-litackaapi.apiary-mock.com/cards/${cardNumber}/validity`),
             axios.get(`http://private-264465-litackaapi.apiary-mock.com/cards/${cardNumber}/state`)
         ]
@@ -18,6 +19,8 @@ export const getStateAndValidity = async (req, res) => {
         
         res.send({endDate: endDateFormatted, state: stateDescription})
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message); // [CR] console.log() neni vhodny pro produkci, pouzil bych napr. winston
+        // [CR] tady se aplikace zasekne, protoze neodesle odpoved
+        // [CR] bud poslat chybovou odpoved, nebo vyhodit chybu a tu odchytit v middleware nebo routeru
     }
 }
